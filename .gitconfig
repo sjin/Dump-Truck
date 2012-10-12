@@ -1,0 +1,8 @@
+[user]
+	name = Sherry Jin
+	email = sjin@thoughtworks.com
+[alias]
+	co = checkout
+	st = status
+[color]
+	ui = auto
