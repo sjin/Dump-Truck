@@ -11,6 +11,18 @@
     model: Post
   });
   
+  var PostView = Backbone.View.extend({
+    tagName: 'div',
+    initialize: function(){
+      _.bindAll(this, 'render');
+    },
+    render: function() {
+      var date = new Date();
+      $(this.el).html("<p><b>"+ this.model.get('title') + " Posted at " + date.getHours() + ":" + date.getMinutes() + "</b></p>" + "<p>"+ this.model.get('text') + "</p>");
+      return this;
+    }
+  });
+  
   var ListView = Backbone.View.extend({    
     el: $('body'),
     events: {
@@ -43,10 +55,11 @@
       this.collection.add(post);
     },
     
-    appendPost: function(post) {
-      var date = new Date();
-      $('div#posts', this.el).append("<p><b>"+ post.get('title') + " Posted at " + date.getHours() + ":" + date.getMinutes() + "</b></p>");
-      $('div#posts', this.el).append("<p>"+ post.get('text') + "</p>");
+    appendPost: function(post) {      
+      var postView = new PostView({
+        model: post
+      });
+      $('div#posts', this.el).append(postView.render().el)
     }
   });
 
