@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
+    %title= content_for?(:title) ? yield(:title) : "Blog"
+    %meta{:content => "", :name => "description"}
+    %meta{:content => "", :name => "author"}
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    = yield(:head)
+  %body            
+    %header.navbar.navbar-inverse.navbar-fixed-top
+      %nav.navbar-inner
+        %a.brand 
+          = "A Fake Blog of Stuff"
+        %ul.nav
+          %li.active
+            %a
+              = "Posts"
+          %li
+            %a
+              = "Link"
+    #main{:role => "main"}
+      .container-fluid
+        .content
+          .row
+            .span2
+              Wafer danish I love topping jelly danish muffin chocolate bar. Jelly-o jelly sweet lemon drops caramels sesame snaps candy caramels. I love wypas donut chocolate bar dragée. I love oat cake powder. Chupa chups liquorice jelly beans ice cream muffin biscuit tootsie roll gummi bears. Jelly-o marzipan tart I love. I love applicake cupcake oat cake wafer halvah lollipop. Biscuit lemon drops sweet roll toffee marzipan dragée cake jelly beans. Marzipan wypas topping croissant. Cookie cotton candy pie muffin fruitcake pudding gingerbread. Carrot cake oat cake soufflé candy dragée. Candy canes chocolate bar icing chocolate topping.
+            .span10
+              = yield
+          %footer
+          
+          
