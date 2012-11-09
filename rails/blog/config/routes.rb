@@ -1,6 +1,7 @@
 Blog::Application.routes.draw do
 
   resources :posts
+  resources :comments, :only =>[:new, :create, :destroy]
 
   root :to => 'home#index'
   # The priority is based upon order of creation:
